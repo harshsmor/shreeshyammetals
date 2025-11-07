@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Shyam Metals (SSM) - Official Business Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #1a1a1a 50%, #2d2d2d 75%, #1a1a1a 100%);
+            color: #e8e8e8;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(27, 94, 32, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(46, 125, 50, 0.06) 0%, transparent 40%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.02) 2px,
+                    rgba(255, 255, 255, 0.02) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+            animation: shimmer 15s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-5%, -5%); }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, #888, #d4d4d4, #ffffff, #d4d4d4, #888) 1;
+            position: relative;
+            background: linear-gradient(135deg, rgba(80, 80, 80, 0.2), rgba(96, 96, 96, 0.1));
+            padding: 40px 20px 30px;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #e8e8e8, #ffffff, #e8e8e8, transparent);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #b8b8b8, #ffffff, #e8e8e8, #d4d4d4, #c0c0c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 900;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+            position: relative;
+        }
+
+        h1::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #888, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: blur(15px);
+            opacity: 0.7;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #d4af37;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 0 10px rgba(212, 175, 55, 0.6),
+                0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, 
+                rgba(64, 64, 64, 0.5) 0%, 
+                rgba(80, 80, 80, 0.6) 50%, 
+                rgba(64, 64, 64, 0.5) 100%);
+            border: 1px solid rgba(192, 192, 192, 0.4);
+            border-left: 5px solid;
+            border-image: linear-gradient(180deg, #d4d4d4, #c0c0c0, #a8a8a8) 1;
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                0 0 0 1px rgba(192, 192, 192, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.15) 50%,
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .info-card:hover::before {
+            left: 100%;
+        }
+
+        .info-card:hover {
+            background: linear-gradient(135deg, 
+                rgba(80, 80, 80, 0.7) 0%, 
+                rgba(96, 96, 96, 0.8) 50%, 
+                rgba(80, 80, 80, 0.7) 100%);
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 16px 48px rgba(0, 0, 0, 0.6),
+                0 0 32px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .info-card:nth-child(2)::after,
+        .info-card:nth-child(5)::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(46, 125, 50, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            background: linear-gradient(90deg, #c0c0c0, #ffffff, #e8e8e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            filter: drop-shadow(0 0 5px rgba(192, 192, 192, 0.5));
+        }
+
+        .info-content {
+            font-size: 1.05rem;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+
+        .info-content a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            font-weight: 600;
+        }
+
+        .info-content a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.8),
+                0 0 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .description-section {
+            background: linear-gradient(135deg, 
+                rgba(80, 80, 80, 0.5) 0%, 
+                rgba(96, 96, 96, 0.6) 50%, 
+                rgba(80, 80, 80, 0.5) 100%);
+            border: 2px solid rgba(192, 192, 192, 0.5);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .description-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #c0c0c0, 
+                #ffffff, 
+                #c0c0c0, 
+                transparent);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .description-section::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(27, 94, 32, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .description-section h2 {
+            background: linear-gradient(135deg, #c0c0c0, #ffffff, #e8e8e8, #d4d4d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            filter: drop-shadow(0 0 10px rgba(192, 192, 192, 0.5));
+        }
+
+        .description-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e8e8e8;
+        }
+
+        footer {
+            background: linear-gradient(135deg, 
+                rgba(32, 32, 32, 0.9) 0%, 
+                rgba(48, 48, 48, 0.8) 50%, 
+                rgba(32, 32, 32, 0.9) 100%);
+            border-top: 2px solid rgba(192, 192, 192, 0.3);
+            padding: 25px 20px;
+            text-align: center;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 -8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #c0c0c0, 
+                #ffffff, 
+                #c0c0c0, 
+                transparent);
+            box-shadow: 0 0 15px rgba(192, 192, 192, 0.4);
+        }
+
+        footer p {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #d4d4d4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Shree Shyam Metals (SSM)</h1>
+            <p class="tagline">Industrial Excellence in Metal Manufacturing</p>
+        </header>
+
+        <div class="description-section">
+            <h2>About Our Business</h2>
+            <p>Leading Manufacturers of Industrial MS Flanges. Specializing in high-quality, reliable metal products for demanding industrial and construction applications.</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">Legal Business Name</div>
+                <div class="info-content">Shree Shyam Metals (SSM)</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-label">Years of Experience</div>
+                <div class="info-content">Over 20 years of industry expertise</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-label">Business Address</div>
+                <div class="info-content">
+                    No. 76, Industrial Garden, Samuel Nagar,<br>
+                    Vadaperumbakkam, Chennai,<br>
+                    Tamil Nadu, India
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-label">Contact Number</div>
+                <div class="info-content">
+                    <a href="tel:+918608688883">+91 8608688883</a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-label">Business Email</div>
+                <div class="info-content">
+                    <a href="mailto:info@shyammetals.co.in">info@shyammetals.co.in</a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-label">Business Category</div>
+                <div class="info-content">Industrial Manufacturing & Metal Products</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Shree Shyam Metals (SSM). All rights reserved.</p>
+        <p><a href="https://shyammetals.co.in">www.shyammetals.co.in</a></p>
+    </footer>
+</body>
+</html>
